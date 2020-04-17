@@ -13,6 +13,9 @@ namespace OntwerpPatronenFullAdder
 
             Console.WriteLine("Hello World!");
             Console.ReadKey();
+
+            Console.WriteLine("Bye, World!");
+            Console.ReadKey();
         }
     }
 }
