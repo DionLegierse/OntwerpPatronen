@@ -1,0 +1,7 @@
+F:\OntwerpPatronen\OntwerpPatronenFullAdder\OntwerpPatronenFullAdder\bin\Debug\OntwerpPatronenFullAdder.exe.config
+F:\OntwerpPatronen\OntwerpPatronenFullAdder\OntwerpPatronenFullAdder\bin\Debug\OntwerpPatronenFullAdder.exe
+F:\OntwerpPatronen\OntwerpPatronenFullAdder\OntwerpPatronenFullAdder\bin\Debug\OntwerpPatronenFullAdder.pdb
+F:\OntwerpPatronen\OntwerpPatronenFullAdder\OntwerpPatronenFullAdder\obj\Debug\OntwerpPatronenFullAdder.csprojAssemblyReference.cache
+F:\OntwerpPatronen\OntwerpPatronenFullAdder\OntwerpPatronenFullAdder\obj\Debug\OntwerpPatronenFullAdder.csproj.CoreCompileInputs.cache
+F:\OntwerpPatronen\OntwerpPatronenFullAdder\OntwerpPatronenFullAdder\obj\Debug\OntwerpPatronenFullAdder.exe
+F:\OntwerpPatronen\OntwerpPatronenFullAdder\OntwerpPatronenFullAdder\obj\Debug\OntwerpPatronenFullAdder.pdb

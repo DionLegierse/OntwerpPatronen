@@ -8,9 +8,12 @@ namespace OntwerpPatronenFullAdder
 {
     class SimpleGate : IGate
     {
+        private int id;
+
         public SimpleGate(int id)
         {
             //Add to factory
+            this.id = id;
         }
         public void SetInput(IGate gate)
         {
