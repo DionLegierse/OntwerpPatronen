@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AndGate.cs" />
+    <Compile Include="NotGate.cs" />
+    <Compile Include="OrGate.cs" />
     <Compile Include="SimpleGate.cs" />
     <Compile Include="IGate.cs" />
     <Compile Include="Program.cs" />
