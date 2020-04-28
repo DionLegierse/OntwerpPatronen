@@ -16,3 +16,7 @@ OntwerpPatronenFullAdder/OntwerpPatronenFullAdder/obj/Debug/OntwerpPatronenFullA
 OntwerpPatronenFullAdder/OntwerpPatronenFullAdder/obj/Debug/OntwerpPatronenFullAdder.pdb
 
 OntwerpPatronenFullAdder/.vs/OntwerpPatronenFullAdder/v15/Server/sqlite3/storage.ide-wal
+
+OntwerpPatronenFullAdder/.vs/
+
+*.cache
