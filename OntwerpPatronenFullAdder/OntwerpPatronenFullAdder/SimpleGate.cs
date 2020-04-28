@@ -20,9 +20,5 @@ namespace OntwerpPatronenFullAdder
         {
             return false;
         }
-        public void UpdateState()
-        {
-
-        }
     }
 }

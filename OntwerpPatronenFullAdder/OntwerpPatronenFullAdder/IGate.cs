@@ -10,6 +10,5 @@ namespace OntwerpPatronenFullAdder
     {
         void SetInput(IGate gate);
         bool GetState();
-        void UpdateState();
     }
 }
