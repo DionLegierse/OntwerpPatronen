@@ -8,7 +8,7 @@ namespace OntwerpPatronenFullAdder
 {
     class SimpleGate : IGate
     {
-        public SimpleGate()
+        public SimpleGate(int id)
         {
             //Add to factory
         }
