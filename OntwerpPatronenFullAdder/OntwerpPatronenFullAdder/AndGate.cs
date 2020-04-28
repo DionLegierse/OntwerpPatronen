@@ -32,5 +32,11 @@ namespace OntwerpPatronenFullAdder
 
             return true;
         }
+
+        public new bool AddInput(IGate gate)
+        {
+            this.inputGates.Add(gate);
+            return true;
+        }
     }
 }
