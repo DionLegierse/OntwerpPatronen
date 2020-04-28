@@ -8,5 +8,14 @@ namespace OntwerpPatronenFullAdder
 {
     class CircuitFactory
     {
+        public void BuildCircuit(Circuit circuit)
+        {
+
+        }
+
+        public void AddComponent(SimpleGate component)
+        {
+
+        }
     }
 }
