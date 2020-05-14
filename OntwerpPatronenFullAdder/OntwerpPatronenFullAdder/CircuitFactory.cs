@@ -6,14 +6,53 @@ using System.Threading.Tasks;
 
 namespace OntwerpPatronenFullAdder
 {
-    class CircuitFactory
+    public class CircuitFactory : IDisposable
     {
-        public void BuildCircuit(Circuit circuit)
-        {
+        bool Disposed = false;
 
+        List<Dictionary<string, string>> ReadComponents;
+
+        public CircuitFactory()
+        {
+            ReadComponents = new List<Dictionary<string, string>>();
         }
 
-        public void AddComponent(SimpleGate component)
+        public void Dispose()
+        {
+            // Dispose of unmanaged resources.
+            Dispose(true);
+            // Suppress finalization.
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (Disposed)
+                return;
+
+            if (disposing)
+            {
+                // Free any other managed objects here.
+                //
+                
+            }
+
+            Disposed = true;
+        }
+
+        ~CircuitFactory()
+        {
+            Dispose(false);
+        }
+
+        public void BuildCircuit()
+        {
+            // TODO: Implementatie van FileReader klasse bekijken en daarop aanpassen
+            //FileReader readFile = new FileReader();
+            //ReadComponents.Add(readfile.NextComponent());
+        }
+
+        public void AddComponent()
         {
 
         }
