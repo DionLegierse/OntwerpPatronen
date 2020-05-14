@@ -20,9 +20,9 @@ namespace OntwerpPatronenFullAdder
             return Instance;
         }
 
-        Dictionary<string, SimpleGate> FactoryList = new Dictionary<string, SimpleGate>();
+        Dictionary<string, PrototypeGate> FactoryList = new Dictionary<string, PrototypeGate>();
 
-        public void Assign(string name, SimpleGate gate)
+        public void Assign(string name, PrototypeGate gate)
         {
             if (!FactoryList.ContainsKey(name))
             {

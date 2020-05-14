@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OntwerpPatronenFullAdder
 {
-    class OrGate : SimpleGate
+    class OrGate : PrototypeGate
     {
         private static OrGate Instance = new OrGate("OR");
 

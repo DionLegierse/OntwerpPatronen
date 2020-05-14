@@ -6,12 +6,12 @@ namespace OntwerpPatronenFullAdder
 {
     class FileReader
     {
-        public FileReader()
+        public FileReader(string path)
         {
-            StrFile = File.ReadAllLines(FileLocation);
             FileIndex = 0;
             ComponentsFound = false;
             beginFound = false;
+            StrFile = File.ReadAllLines(path);
         }
 
         public Dictionary<string, string> NextComponent()
@@ -156,8 +156,6 @@ namespace OntwerpPatronenFullAdder
         }
 
         //private variables
-        //De path naar de inputfile
-        private static readonly string FileLocation = "C:\\Users\\Marleen\\inputFile.txt";
         //Hier wordt de file line voor line in opgeslagen
         private string[] StrFile;
         //Index voor de momenteel gebruikte line
