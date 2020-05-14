@@ -12,7 +12,7 @@ namespace OntwerpPatronenFullAdder
 
         private AndGate(int id) : base(id)
         {
-            
+            this.inputGates = new List<IGate>();
         }
 
         static SimpleGate CreateAndGate(int id)
@@ -20,7 +20,7 @@ namespace OntwerpPatronenFullAdder
             return new AndGate(id);
         }
 
-        public new bool GetState()
+        public override bool GetState()
         {
             foreach(IGate gate in this.inputGates)
             {
@@ -33,7 +33,7 @@ namespace OntwerpPatronenFullAdder
             return true;
         }
 
-        public new bool AddInput(IGate gate)
+        public override bool AddInput(IGate gate)
         {
             this.inputGates.Add(gate);
             return true;

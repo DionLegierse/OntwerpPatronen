@@ -12,11 +12,11 @@ namespace OntwerpPatronenFullAdder
         {
             //Add to factory
         }
-        public bool AddInput(IGate gate)
+        public virtual bool AddInput(IGate gate)
         {
             return false;
         }
-        public bool GetState()
+        public virtual bool GetState()
         {
             return false;
         }

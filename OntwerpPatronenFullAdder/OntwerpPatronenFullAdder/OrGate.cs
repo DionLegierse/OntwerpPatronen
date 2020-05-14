@@ -20,7 +20,7 @@ namespace OntwerpPatronenFullAdder
             return new OrGate(id);
         }
 
-        public new bool GetState()
+        public override bool GetState()
         {
             foreach (IGate gate in this.inputGates)
             {
@@ -33,7 +33,7 @@ namespace OntwerpPatronenFullAdder
             return false;
         }
 
-        public new bool AddInput(IGate gate)
+        public override bool AddInput(IGate gate)
         {
             this.inputGates.Add(gate);
             return true;

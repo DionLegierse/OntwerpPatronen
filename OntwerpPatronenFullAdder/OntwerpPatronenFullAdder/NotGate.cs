@@ -20,12 +20,12 @@ namespace OntwerpPatronenFullAdder
             return new NotGate(id);
         }
 
-        public new bool GetState()
+        public override bool GetState()
         {
             return !inputGate.GetState();
         }
 
-        public new bool AddInput(IGate gate)
+        public override bool AddInput(IGate gate)
         {
             if (this.inputGate == null)
             {
