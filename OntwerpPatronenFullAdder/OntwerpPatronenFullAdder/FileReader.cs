@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace OntwerpPatronenFullAdder
 {
-    internal partial class FileReader
+    class FileReader
     {
         public FileReader()
         {
@@ -26,10 +26,10 @@ namespace OntwerpPatronenFullAdder
             string line = StrFile[FileIndex];
             
             //Zolang er geen lege regel of # is gevonden door blijven gaan
-            if (!ComponentsFound && line.Length != 0)
+            if (!this.ComponentsFound && line.Length != 0)
             {
                 //Langs de eerste comment regels met een # gaan
-                while (!beginFound)
+                while (!this.beginFound)
                 {
                     if (line[0] != '#')
                     {
@@ -42,36 +42,38 @@ namespace OntwerpPatronenFullAdder
                     }
                 }
 
-                //Om door de regel heen te gaan
-                int lineIndex = 0;
-                //Voor de : staat de naam van de node
-                while (line[lineIndex] != ':')
                 {
-                    NodeName += line[lineIndex++];
-                }
-
-                //Anders gaan de : mee
-                lineIndex++;
-
-                //De regel eindigt altijd met een ; daar voor staat de naam van de gate
-                while (line[lineIndex] != ';')
-                {
-                    //Spaties, tabs en eventuele \r en \n hoeven niet mee in de gate naam
-                    if (line[lineIndex] != ' ' && line[lineIndex] != 0x9 && line[lineIndex] != '\n' && line[lineIndex] != '\r')
+                    //Om door de regel heen te gaan
+                    int lineIndex = 0;
+                    //Voor de : staat de naam van de node
+                    while (line[lineIndex] != ':')
                     {
-                        StrGate += line[lineIndex];
+                        NodeName += line[lineIndex++];
                     }
+
+                    //Anders gaat de : mee
                     lineIndex++;
+
+                    //De regel eindigt altijd met een ; daar voor staat de naam van de gate
+                    while (line[lineIndex] != ';')
+                    {
+                        //Spaties en tabs hoeven niet mee in de gate naam
+                        if (line[lineIndex] != ' ' && line[lineIndex] != 0x9)
+                        {
+                            StrGate += line[lineIndex];
+                        }
+                        lineIndex++;
+                    }
                 }
 
                 //Voeg node naam en gate naam samen om terug te geven
                 Nodes.Add(NodeName, StrGate);
 
                 //debug shit
-                //Console.Write(NodeName);
-                //Console.Write(" ");
-                //Console.Write(StrGate);
-                //Console.Write("\n");
+                Console.Write(NodeName);
+                Console.Write(" ");
+                Console.Write(StrGate);
+                Console.Write("\n");
             }
             else
             {
@@ -79,30 +81,78 @@ namespace OntwerpPatronenFullAdder
                 ComponentsFound = true;
                 //We zijn weer terug bij een comment sectie, dus het begin van de connections moet gevonden worden
                 beginFound = false;
+                FileIndex++;
                 //De code dat er geen meer komen
-                Nodes.Add("Last", "0");
-                //Console.Write("aaaaaaaaaaaaaa");
+                return null;
             }
 
-            //Naar de volgende regel
             FileIndex++;
 
             //Node naam en gate naam worden teruggegeven
             return Nodes;
         }
 
-        public void NextConnection()
+        public List<string> NextConnection()
         {
-            if(ComponentsFound)
+            List<string> connections = new List<string>();
+            string connName = "";
+            string line;
+
+            if (FileIndex != StrFile.Length)
             {
-                //Go on!
-                //TODO: Add code to read the connection and find a good way to send them
+                line = StrFile[FileIndex];
+            }
+            else
+            {
+                return null;
+            }
+
+            if (this.ComponentsFound)
+            {
+                //Langs de eerste comment regels met een # gaan
+                while (!this.beginFound)
+                {
+                    if (line[0] != '#')
+                    {
+                        beginFound = true;
+                    }
+                    else
+                    {
+                        FileIndex++;
+                        line = StrFile[FileIndex];
+                    }
+                }
+
+                int lineIndex = 0;
+                do
+                {
+                    if (line[lineIndex] == ':' || line[lineIndex] == ',' || line[lineIndex] == ';')
+                    {
+                        Console.Write(connName);
+                        Console.Write(" ");
+                        connections.Add(connName);
+                        connName = "";
+                    }
+                    else if (line[lineIndex] != ' ' && line[lineIndex] != 0x9)
+                    {
+                        connName += line[lineIndex];
+                    }
+                    lineIndex++;
+                } while (line[lineIndex-1] != ';');
+                Console.Write("\n");
+                
             }
             else
             {
                 //More components to be found!!
+                return null;
                 //TODO: 'Error code' because not all components were found yet
             }
+
+            FileIndex++;
+
+            return connections;
+
         }
 
         //private variables
