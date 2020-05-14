@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OntwerpPatronenFullAdder
 {
-    class OutputGate : SimpleGate
+    class OutputGate : PrototypeGate
     {
         private bool state;
         private IGate inputGate;

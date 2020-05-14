@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace OntwerpPatronenFullAdder { 
-public class SimpleGate : IGate
+public class PrototypeGate : IGate
     {
-        public SimpleGate(string id)
+        public PrototypeGate(string id)
         {
             ComponentFactory.GetInstance().Assign(id, this);  
         }
 
-        public SimpleGate()
+        public PrototypeGate()
         {
 
         }
