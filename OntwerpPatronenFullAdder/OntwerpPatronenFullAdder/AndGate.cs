@@ -8,7 +8,8 @@ namespace OntwerpPatronenFullAdder
 {
     class AndGate : SimpleGate
     {
-        private List<IGate> inputGates;
+        private List<IGate> inputGates = new List<IGate>();
+        bool state;
 
         private AndGate(int id) : base(id)
         {
@@ -22,21 +23,32 @@ namespace OntwerpPatronenFullAdder
 
         public override bool GetState()
         {
-            foreach(IGate gate in this.inputGates)
+            return state;
+        }
+
+        public override void UpdateState()
+        {
+            state = true;
+            foreach (IGate gate in this.inputGates)
             {
                 if (!gate.GetState())
                 {
-                    return false;
+                    state = false;
                 }
             }
 
-            return true;
+            ComponentObserver.GetInstance().Notify(this);
         }
 
         public override bool AddInput(IGate gate)
         {
             this.inputGates.Add(gate);
             return true;
+        }
+
+        public override List<IGate> GetInputs()
+        {
+            return inputGates;
         }
     }
 }

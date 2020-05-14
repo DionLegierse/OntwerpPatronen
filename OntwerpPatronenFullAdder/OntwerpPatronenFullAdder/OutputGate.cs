@@ -9,22 +9,34 @@ namespace OntwerpPatronenFullAdder
     class OutputGate : SimpleGate
     {
         private bool state;
-        private IGate input;
+        private IGate inputGate;
 
-        public OutputGate(int id) : base(id)
+        private OutputGate(int id) : base(id)
         {
             state = false;
         }
 
         public override bool AddInput(IGate gate)
         {
-            input = gate;
+            inputGate = gate;
             return true;
         }
 
         public override bool GetState()
         {
-            return input.GetState();
+            return state;
+        }
+
+        public override void UpdateState()
+        {
+            state = inputGate.GetState();
+        }
+
+        public override List<IGate> GetInputs()
+        {
+            List<IGate> inputGates = new List<IGate>();
+            inputGates.Add(inputGate);
+            return inputGates;
         }
     }
 }

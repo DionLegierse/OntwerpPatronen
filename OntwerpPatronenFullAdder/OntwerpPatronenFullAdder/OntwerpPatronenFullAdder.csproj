@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AndGate.cs" />
+    <Compile Include="ComponentObserver.cs" />
     <Compile Include="IGate.cs" />
     <Compile Include="InputGate.cs" />
     <Compile Include="NotGate.cs" />

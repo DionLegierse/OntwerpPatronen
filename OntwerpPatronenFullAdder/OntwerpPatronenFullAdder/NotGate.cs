@@ -9,6 +9,7 @@ namespace OntwerpPatronenFullAdder
     class NotGate : SimpleGate
     {
         private IGate inputGate = null;
+        private bool state;
 
         private NotGate(int id) : base(id)
         {
@@ -22,7 +23,14 @@ namespace OntwerpPatronenFullAdder
 
         public override bool GetState()
         {
-            return !inputGate.GetState();
+            return state;
+        }
+
+        public override void UpdateState()
+        {
+            state = !inputGate.GetState();
+            
+            ComponentObserver.GetInstance().Notify(this);
         }
 
         public override bool AddInput(IGate gate)
@@ -34,6 +42,13 @@ namespace OntwerpPatronenFullAdder
             }
 
             return false;
+        }
+
+        public override List<IGate> GetInputs()
+        {
+            List<IGate> inputGates = new List<IGate>();
+            inputGates.Add(inputGate);
+            return inputGates;
         }
     }
 }

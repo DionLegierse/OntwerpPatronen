@@ -10,5 +10,7 @@ namespace OntwerpPatronenFullAdder
     {
         bool AddInput(IGate gate);
         bool GetState();
+        void UpdateState();
+        List<IGate> GetInputs();
     }
 }

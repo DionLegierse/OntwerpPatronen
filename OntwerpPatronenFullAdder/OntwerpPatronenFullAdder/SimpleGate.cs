@@ -20,5 +20,15 @@ namespace OntwerpPatronenFullAdder
         {
             return false;
         }
+
+        public virtual void UpdateState()
+        {
+        }
+
+        public virtual List<IGate> GetInputs()
+        {
+            List<IGate> inputList = new List<IGate>();
+            return inputList;
+        }
     }
 }
