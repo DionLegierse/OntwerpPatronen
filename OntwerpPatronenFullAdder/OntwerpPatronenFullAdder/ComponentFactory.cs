@@ -30,10 +30,14 @@ namespace OntwerpPatronenFullAdder
             }
         }
 
-        public SimpleGate CreateComponent(string type)
+        public IGate CreateComponent(string type)
         {
-            //TODO: MAKE SAFER
-            return FactoryList[type].Clone();
+            if (FactoryList.ContainsKey(type))
+            {
+                return FactoryList[type].Clone();
+            }
+
+            return null;
         }
     }
 }
