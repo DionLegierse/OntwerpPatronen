@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +8,15 @@ namespace OntwerpPatronenFullAdder
 {
     class OrGate : PrototypeGate
     {
-        private static OrGate Instance = new OrGate("OR");
+        private static OrGate Instance;
 
         private readonly List<IGate> inputGates = new List<IGate>();
         private bool state;
+
+        public static void Initialize()
+        {
+            Instance = new OrGate("OR");
+        }
 
         private OrGate(string id) : base(id)
         {

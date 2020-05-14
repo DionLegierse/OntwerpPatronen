@@ -11,7 +11,12 @@ namespace OntwerpPatronenFullAdder
         private List<IGate> inputGates = new List<IGate>();
         bool state;
 
-        private static AndGate Instance = new AndGate("AND");
+        private static AndGate Instance;
+
+        public static void Initialize()
+        {
+            Instance = new AndGate("AND");
+        }
 
         private AndGate(string id) : base(id)
         {

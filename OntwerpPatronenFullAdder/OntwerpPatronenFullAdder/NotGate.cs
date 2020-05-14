@@ -11,7 +11,12 @@ namespace OntwerpPatronenFullAdder
         private IGate inputGate = null;
         private bool state;
 
-        private static NotGate Instance = new NotGate("Not");
+        private static NotGate Instance;
+
+        public static void Initialize()
+        {
+            Instance = new NotGate("NOT");
+        }
 
         private NotGate(string id) : base(id)
         {

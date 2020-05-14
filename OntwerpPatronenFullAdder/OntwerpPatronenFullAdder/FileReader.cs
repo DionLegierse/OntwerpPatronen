@@ -68,12 +68,6 @@ namespace OntwerpPatronenFullAdder
 
                 //Voeg node naam en gate naam samen om terug te geven
                 Nodes.Add(NodeName, StrGate);
-
-                //debug shit
-                Console.Write(NodeName);
-                Console.Write(" ");
-                Console.Write(StrGate);
-                Console.Write("\n");
             }
             else
             {
