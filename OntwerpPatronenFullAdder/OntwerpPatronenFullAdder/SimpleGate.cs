@@ -4,14 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OntwerpPatronenFullAdder
-{
-    class SimpleGate : IGate
+namespace OntwerpPatronenFullAdder { 
+public class SimpleGate : IGate
     {
-        public SimpleGate(int id)
+        public SimpleGate(string id)
         {
-            //Add to factory
+            ComponentFactory.GetInstance().Assign(id, this);  
         }
+
+        public SimpleGate()
+        {
+
+        }
+            
         public virtual bool AddInput(IGate gate)
         {
             return false;
@@ -23,6 +28,11 @@ namespace OntwerpPatronenFullAdder
 
         public virtual void UpdateState()
         {
+        }
+
+        public virtual IGate Clone()
+        {
+            return this;
         }
 
         public virtual List<IGate> GetInputs()

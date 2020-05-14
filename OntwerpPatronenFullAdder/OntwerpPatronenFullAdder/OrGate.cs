@@ -8,17 +8,19 @@ namespace OntwerpPatronenFullAdder
 {
     class OrGate : SimpleGate
     {
+        private static OrGate Instance = new OrGate("OR");
+
         private readonly List<IGate> inputGates = new List<IGate>();
         private bool state;
 
-        private OrGate(int id) : base(id)
+        private OrGate(string id) : base(id)
         {
 
         }
 
-        static SimpleGate CreateOrGate(int id)
+        private OrGate()
         {
-            return new OrGate(id);
+
         }
 
         public override bool GetState()
@@ -48,6 +50,11 @@ namespace OntwerpPatronenFullAdder
         public override List<IGate> GetInputs()
         {
             return inputGates;
+        }
+
+        public override IGate Clone()
+        {
+            return new OrGate();
         }
     }
 }
