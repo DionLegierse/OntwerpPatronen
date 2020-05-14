@@ -8,8 +8,9 @@ namespace OntwerpPatronenFullAdder
 {
     interface IGate
     {
-        void SetInput(IGate gate);
+        bool AddInput(IGate gate);
         bool GetState();
         void UpdateState();
+        List<IGate> GetInputs();
     }
 }
