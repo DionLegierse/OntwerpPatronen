@@ -11,14 +11,16 @@ namespace OntwerpPatronenFullAdder
         private IGate inputGate = null;
         private bool state;
 
-        private NotGate(int id) : base(id)
+        private static NotGate Instance = new NotGate("Not");
+
+        private NotGate(string id) : base(id)
         {
 
         }
 
-        static SimpleGate CreateNotGate(int id)
+        private NotGate()
         {
-            return new NotGate(id);
+
         }
 
         public override bool GetState()
@@ -49,6 +51,11 @@ namespace OntwerpPatronenFullAdder
             List<IGate> inputGates = new List<IGate>();
             inputGates.Add(inputGate);
             return inputGates;
+        }
+
+        public override IGate Clone()
+        {
+            return new NotGate();
         }
     }
 }

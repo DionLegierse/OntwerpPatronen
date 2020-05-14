@@ -11,14 +11,16 @@ namespace OntwerpPatronenFullAdder
         private List<IGate> inputGates = new List<IGate>();
         bool state;
 
-        private AndGate(int id) : base(id)
+        private static AndGate Instance = new AndGate("AND");
+
+        private AndGate(string id) : base(id)
         {
             this.inputGates = new List<IGate>();
         }
 
-        static SimpleGate CreateAndGate(int id)
+        private AndGate()
         {
-            return new AndGate(id);
+
         }
 
         public override bool GetState()
@@ -49,6 +51,11 @@ namespace OntwerpPatronenFullAdder
         public override List<IGate> GetInputs()
         {
             return inputGates;
+        }
+
+        public override IGate Clone()
+        {
+            return new AndGate();
         }
     }
 }

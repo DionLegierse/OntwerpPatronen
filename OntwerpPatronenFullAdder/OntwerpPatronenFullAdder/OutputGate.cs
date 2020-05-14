@@ -11,9 +11,16 @@ namespace OntwerpPatronenFullAdder
         private bool state;
         private IGate inputGate;
 
-        private OutputGate(int id) : base(id)
+        private static OutputGate Instance = new OutputGate("OUTPUT");
+
+        private OutputGate(string id) : base(id)
         {
             state = false;
+        }
+
+        private OutputGate()
+        {
+
         }
 
         public override bool AddInput(IGate gate)
@@ -37,6 +44,11 @@ namespace OntwerpPatronenFullAdder
             List<IGate> inputGates = new List<IGate>();
             inputGates.Add(inputGate);
             return inputGates;
+        }
+
+        public override IGate Clone()
+        {
+            return new OutputGate();
         }
     }
 }

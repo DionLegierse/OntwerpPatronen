@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace OntwerpPatronenFullAdder
 {
-    interface IGate
+    public interface IGate
     {
         bool AddInput(IGate gate);
         bool GetState();
         void UpdateState();
         List<IGate> GetInputs();
+
+        IGate Clone();
     }
 }

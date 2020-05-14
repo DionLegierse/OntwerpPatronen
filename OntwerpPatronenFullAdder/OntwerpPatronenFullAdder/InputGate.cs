@@ -9,9 +9,16 @@ namespace OntwerpPatronenFullAdder
     class InputGate : SimpleGate
     {
         private bool state;
-        private InputGate(int id) : base(id)
+
+        private static InputGate Instance = new InputGate("Input");
+        private InputGate(string id) : base(id)
         {
             state = false;
+        }
+
+        private InputGate()
+        {
+
         }
 
         public void SetState(bool state)
@@ -23,6 +30,11 @@ namespace OntwerpPatronenFullAdder
         public override bool GetState()
         {
             return state;
+        }
+
+        public override IGate Clone()
+        {
+            return new InputGate();
         }
     }
 }
