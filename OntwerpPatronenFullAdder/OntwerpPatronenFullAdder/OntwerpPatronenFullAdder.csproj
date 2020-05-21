@@ -49,8 +49,11 @@
     <Compile Include="FileReader.cs" />
     <Compile Include="IGate.cs" />
     <Compile Include="InputGate.cs" />
+    <Compile Include="InputHighGate.cs" />
+    <Compile Include="InputLowGate.cs" />
     <Compile Include="NotGate.cs" />
     <Compile Include="OrGate.cs" />
+    <Compile Include="Probe.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PrototypeGate.cs" />

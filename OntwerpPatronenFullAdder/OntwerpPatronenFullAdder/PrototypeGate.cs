@@ -28,6 +28,7 @@ public class PrototypeGate : IGate
 
         public virtual void UpdateState()
         {
+            ComponentObserver.GetInstance().Notify(this);
         }
 
         public virtual IGate Clone()
@@ -45,8 +46,10 @@ public class PrototypeGate : IGate
         {
             OrGate.Initialize();
             AndGate.Initialize();
-            InputGate.Initialize();
             NotGate.Initialize();
+            Probe.Initialize();
+            InputHighGate.Initialize();
+            InputLowGate.Initialize();
         }
     }
 }

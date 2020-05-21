@@ -6,41 +6,21 @@ using System.Threading.Tasks;
 
 namespace OntwerpPatronenFullAdder
 {
-    class InputGate : PrototypeGate
+    public class InputGate : PrototypeGate
     {
-        private bool state;
-
-        private static InputGate Instance;
-    
-        public static void Initialize()
+        public void UpdateState(bool state)
         {
-            Instance = new InputGate("INPUT");
-        }
-
-        private InputGate(string id) : base(id)
-        {
-            state = false;
-        }
-
-        private InputGate()
-        {
-
-        }
-
-        public void SetState(bool state)
-        {
-            this.state = state;
             ComponentObserver.GetInstance().Notify(this);
         }
 
-        public override bool GetState()
+        public InputGate (string id) : base(id)
         {
-            return state;
+
         }
 
-        public override IGate Clone()
+        public InputGate()
         {
-            return new InputGate();
+
         }
     }
 }
