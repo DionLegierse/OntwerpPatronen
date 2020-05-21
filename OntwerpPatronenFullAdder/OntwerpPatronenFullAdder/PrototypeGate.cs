@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,6 +39,14 @@ public class PrototypeGate : IGate
         {
             List<IGate> inputList = new List<IGate>();
             return inputList;
+        }
+
+        public static void Init()
+        {
+            OrGate.Initialize();
+            AndGate.Initialize();
+            InputGate.Initialize();
+            NotGate.Initialize();
         }
     }
 }

@@ -8,15 +8,21 @@ namespace OntwerpPatronenFullAdder
 {
     public class ComponentFactory
     {
-        private static readonly ComponentFactory Instance = new ComponentFactory();
+        private static ComponentFactory Instance;
 
         private ComponentFactory()
         {
-
+            
         }
 
         public static ComponentFactory GetInstance()
         {
+            if (Instance == null)
+            {
+                Instance = new ComponentFactory();
+                PrototypeGate.Init();
+            }
+
             return Instance;
         }
 

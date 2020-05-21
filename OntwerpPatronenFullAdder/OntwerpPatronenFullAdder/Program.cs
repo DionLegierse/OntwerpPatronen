@@ -10,11 +10,9 @@ namespace OntwerpPatronenFullAdder
     {
         static void Main(string[] args)
         {
+            Circuit circuit = new Circuit("..\\..\\circuit1.txt");
 
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
-
-            Console.WriteLine("Bye, World!");
+            circuit.Simulate();
             Console.ReadKey();
         }
     }

@@ -68,12 +68,6 @@ namespace OntwerpPatronenFullAdder
 
                 //Voeg node naam en gate naam samen om terug te geven
                 Nodes.Add(NodeName, StrGate);
-
-                //debug shit
-                Console.Write(NodeName);
-                Console.Write(" ");
-                Console.Write(StrGate);
-                Console.Write("\n");
             }
             else
             {
@@ -128,8 +122,6 @@ namespace OntwerpPatronenFullAdder
                 {
                     if (line[lineIndex] == ':' || line[lineIndex] == ',' || line[lineIndex] == ';')
                     {
-                        Console.Write(connName);
-                        Console.Write(" ");
                         connections.Add(connName);
                         connName = "";
                     }
@@ -139,7 +131,6 @@ namespace OntwerpPatronenFullAdder
                     }
                     lineIndex++;
                 } while (line[lineIndex-1] != ';');
-                Console.Write("\n");
                 
             }
             else

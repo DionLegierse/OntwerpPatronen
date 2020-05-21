@@ -10,7 +10,13 @@ namespace OntwerpPatronenFullAdder
     {
         private bool state;
 
-        private static InputGate Instance = new InputGate("Input");
+        private static InputGate Instance;
+    
+        public static void Initialize()
+        {
+            Instance = new InputGate("INPUT");
+        }
+
         private InputGate(string id) : base(id)
         {
             state = false;

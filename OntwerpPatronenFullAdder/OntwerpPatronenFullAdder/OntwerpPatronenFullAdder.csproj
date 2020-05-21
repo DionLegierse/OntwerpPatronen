@@ -51,10 +51,9 @@
     <Compile Include="InputGate.cs" />
     <Compile Include="NotGate.cs" />
     <Compile Include="OrGate.cs" />
-    <Compile Include="OutputGate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SimpleGate.cs" />
+    <Compile Include="PrototypeGate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
