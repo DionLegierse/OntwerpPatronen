@@ -44,9 +44,10 @@ namespace OntwerpPatronenFullAdder
 
         public void Notify(IGate component)
         {
+
             List<IGate> updateList = updateTable[component];
 
-            foreach(IGate gate in updateList)
+            foreach (IGate gate in updateList)
             {
                 gate.UpdateState();
             }

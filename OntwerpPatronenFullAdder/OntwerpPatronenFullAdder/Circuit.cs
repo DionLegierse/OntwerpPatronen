@@ -10,9 +10,9 @@ namespace OntwerpPatronenFullAdder
     {
         private FileReader Reader;
 
-        private readonly Dictionary<string, IGate>          Nodes       = new Dictionary<string, IGate>();
-        private readonly Dictionary<string, List<IGate>>    Connections = new Dictionary<string, List<IGate>>();
-        private readonly Dictionary<IGate, bool>            Inputs      = new Dictionary<IGate, bool>();
+        private readonly Dictionary<string, IGate>  Nodes       = new Dictionary<string, IGate>();
+        private readonly List<InputGate>            Inputs      = new List<InputGate>();
+        private readonly Dictionary<string, Probe>  Probes      = new Dictionary<string, Probe>();
 
         public Circuit(string path)
         {
@@ -56,40 +56,37 @@ namespace OntwerpPatronenFullAdder
         {
             IGate component = ComponentFactory.GetInstance().CreateComponent(node.Value);
 
-            if (node.Value.Contains("INPUT"))
-            {
-                component = ComponentFactory.GetInstance().CreateComponent("INPUT");
-            }
-
-
             if (!Nodes.ContainsKey(node.Key) && component != null)
             {
                 Nodes.Add(node.Key, component);
             }
 
-            switch (node.Value)
+            if(component is InputGate input)
             {
-                case "INPUT_HIGH":
-                    Inputs.Add(component, true);
-                    break;
-                case "INPUT_LOW":
-                    Inputs.Add(component, false);
-                    break;
-                case "PROBE":
-                    //TODO: add probes 
-                    break;
+                Inputs.Add(input);
+            }
+
+            if(component is Probe probe)
+            {
+                Probes.Add(node.Key, probe);
             }
         }
 
         public void Simulate()
         {
-            foreach(KeyValuePair<IGate, bool> input in Inputs)
+            foreach (InputGate input in Inputs)
             {
-                if (input.Key is InputGate gate)
-                {
-                    gate.SetState(input.Value);
-                }
+                input.UpdateState();
             }
+       
+            Console.WriteLine("Output for all probe nodes:");
+
+            foreach (KeyValuePair<string, Probe> probe in Probes)
+            {
+                Console.WriteLine("\tProbe '" + probe.Key + "'\t" + (probe.Value.GetState() ? 1 : 0));
+            }
+
+            Console.WriteLine("...bye");
         }
     }
 }
