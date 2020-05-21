@@ -12,7 +12,7 @@ namespace OntwerpPatronenFullAdder
         {
             Circuit circuit = new Circuit("..\\..\\circuit1.txt");
 
-            Console.WriteLine("Hello, World");
+            circuit.Simulate();
             Console.ReadKey();
         }
     }

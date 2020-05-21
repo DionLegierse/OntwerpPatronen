@@ -122,8 +122,6 @@ namespace OntwerpPatronenFullAdder
                 {
                     if (line[lineIndex] == ':' || line[lineIndex] == ',' || line[lineIndex] == ';')
                     {
-                        Console.Write(connName);
-                        Console.Write(" ");
                         connections.Add(connName);
                         connName = "";
                     }
@@ -133,7 +131,6 @@ namespace OntwerpPatronenFullAdder
                     }
                     lineIndex++;
                 } while (line[lineIndex-1] != ';');
-                Console.Write("\n");
                 
             }
             else
