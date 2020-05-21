@@ -6,10 +6,6 @@ using System.Threading.Tasks;
 
 namespace OntwerpPatronenFullAdder
 {
-
-    public class Probe
-    {
-    }
     public class Circuit
     {
         private FileReader Reader;

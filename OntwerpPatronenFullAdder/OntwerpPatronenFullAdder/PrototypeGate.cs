@@ -47,6 +47,7 @@ public class PrototypeGate : IGate
             AndGate.Initialize();
             InputGate.Initialize();
             NotGate.Initialize();
+            Probe.Initialize();
         }
     }
 }

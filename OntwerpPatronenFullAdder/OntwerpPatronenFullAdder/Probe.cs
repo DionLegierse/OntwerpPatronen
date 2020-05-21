@@ -6,12 +6,23 @@ using System.Threading.Tasks;
 
 namespace OntwerpPatronenFullAdder
 {
-    class Probe : PrototypeGate
+    public class Probe : PrototypeGate
     {
         private IGate ProbeGate = null;
-        bool state;
+        private bool state = false;
 
-        Probe()
+        private static Probe Instance; 
+        public static void Initialize()
+        {
+            Instance = new Probe("PROBE");
+        }
+
+        private Probe(string id) : base(id)
+        {
+
+        }
+
+        private Probe()
         {
 
         }
@@ -46,10 +57,7 @@ namespace OntwerpPatronenFullAdder
 
         public override void UpdateState()
         {
-            state = !ProbeGate.GetState();
-
-            //Moet dit er hier bij?
-            ComponentObserver.GetInstance().Notify(this);
+            state = ProbeGate.GetState();
         }
        
     }
