@@ -8,22 +8,10 @@ namespace OntwerpPatronenFullAdder
 {
     class OrGate : PrototypeGate
     {
-        private static OrGate Instance;
 
         private readonly List<IGate> inputGates = new List<IGate>();
         private bool state;
-
-        public static void Initialize()
-        {
-            Instance = new OrGate("OR");
-        }
-
-        private OrGate(string id) : base(id)
-        {
-
-        }
-
-        private OrGate()
+        public OrGate()
         {
 
         }
@@ -60,6 +48,10 @@ namespace OntwerpPatronenFullAdder
         public override IGate Clone()
         {
             return new OrGate();
+        }
+        public override string GetKey()
+        {
+            return "OR";
         }
     }
 }

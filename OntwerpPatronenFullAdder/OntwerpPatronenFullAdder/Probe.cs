@@ -11,18 +11,7 @@ namespace OntwerpPatronenFullAdder
         private IGate ProbeGate = null;
         private bool state = false;
 
-        private static Probe Instance; 
-        public static void Initialize()
-        {
-            Instance = new Probe("PROBE");
-        }
-
-        private Probe(string id) : base(id)
-        {
-
-        }
-
-        private Probe()
+        public Probe()
         {
 
         }
@@ -59,6 +48,10 @@ namespace OntwerpPatronenFullAdder
         {
             state = ProbeGate.GetState();
         }
-       
+
+        public override string GetKey()
+        {
+            return "PROBE";
+        }
     }
 }

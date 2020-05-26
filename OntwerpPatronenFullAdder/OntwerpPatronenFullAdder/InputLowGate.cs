@@ -8,18 +8,7 @@ namespace OntwerpPatronenFullAdder
 {
     public class InputLowGate : InputGate
     {
-        private static InputLowGate Instance;
-
-        public static void Initialize()
-        {
-            Instance = new InputLowGate("INPUT_LOW");
-        }
-
-        private InputLowGate(string id) : base(id)
-        {
-        }
-
-        private InputLowGate()
+        public InputLowGate()
         {
 
         }
@@ -32,6 +21,10 @@ namespace OntwerpPatronenFullAdder
         public override IGate Clone()
         {
             return new InputLowGate();
+        }
+        public override string GetKey()
+        {
+            return "INPUT_LOW";
         }
     }
 }

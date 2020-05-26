@@ -13,11 +13,6 @@ namespace OntwerpPatronenFullAdder
             ComponentObserver.GetInstance().Notify(this);
         }
 
-        public InputGate (string id) : base(id)
-        {
-
-        }
-
         public InputGate()
         {
 
