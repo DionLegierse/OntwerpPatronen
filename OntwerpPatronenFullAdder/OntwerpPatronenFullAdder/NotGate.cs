@@ -55,5 +55,10 @@ namespace OntwerpPatronenFullAdder
         {
             return "NOT";
         }
+
+        public override bool IsConnectedCorrect()
+        {
+            return (inputGate != null);
+        }
     }
 }

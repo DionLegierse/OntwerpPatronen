@@ -17,5 +17,10 @@ namespace OntwerpPatronenFullAdder
         {
 
         }
+
+        public override bool IsConnectedCorrect()
+        {
+            return true;
+        }
     }
 }

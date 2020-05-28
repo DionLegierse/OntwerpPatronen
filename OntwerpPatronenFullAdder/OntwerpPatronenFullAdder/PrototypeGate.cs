@@ -41,5 +41,10 @@ public abstract class PrototypeGate : IGate
         {
             return "PROTOTYPE";
         }
+
+        public virtual bool IsConnectedCorrect()
+        {
+            return false;
+        } 
     }
 }

@@ -14,5 +14,6 @@ namespace OntwerpPatronenFullAdder
         List<IGate> GetInputs();
         IGate Clone();
         string GetKey();
+        bool IsConnectedCorrect();
     }
 }

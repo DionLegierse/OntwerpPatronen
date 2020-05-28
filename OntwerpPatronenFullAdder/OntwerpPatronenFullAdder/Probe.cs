@@ -53,5 +53,10 @@ namespace OntwerpPatronenFullAdder
         {
             return "PROBE";
         }
+
+        public override bool IsConnectedCorrect()
+        {
+            return (ProbeGate != null);
+        }
     }
 }

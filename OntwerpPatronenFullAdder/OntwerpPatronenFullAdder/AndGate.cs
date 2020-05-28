@@ -8,6 +8,8 @@ namespace OntwerpPatronenFullAdder
 {
     class AndGate : PrototypeGate
     {
+        private const int MINIMAL_GATES = 2;
+
         private List<IGate> inputGates = new List<IGate>();
         bool state;
 
@@ -54,6 +56,11 @@ namespace OntwerpPatronenFullAdder
         public override string GetKey()
         {
             return "AND";
+        }
+
+        public override bool IsConnectedCorrect()
+        {
+            return (inputGates.Count >= MINIMAL_GATES);
         }
     }
 }
