@@ -8,7 +8,7 @@ namespace OntwerpPatronenFullAdder
 {
     public class InputGate : PrototypeGate
     {
-        public void UpdateState(bool state)
+        public override void UpdateState()
         {
             ComponentObserver.GetInstance().Notify(this);
         }
