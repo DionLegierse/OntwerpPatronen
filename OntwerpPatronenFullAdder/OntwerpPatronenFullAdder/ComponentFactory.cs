@@ -12,7 +12,52 @@ namespace OntwerpPatronenFullAdder
 
         private ComponentFactory()
         {
-            
+            Type[] allTypes = System.Reflection.Assembly.GetExecutingAssembly().GetTypes();
+            Type baseIGate = typeof(PrototypeGate);
+
+            foreach(Type type in allTypes)
+            {
+                Type next = type;
+                Type previous = null;
+     
+                while (next != null && baseIGate.FullName != next.FullName)
+                {
+                    previous = next;
+                    next = next.BaseType;
+                }
+
+                if (previous != null && !previous.IsAbstract && !previous.IsPrimitive)
+                {
+                    AddToFactory(type);
+                }
+            }
+        }
+
+        private void AddToFactory(Type type)
+        {
+            System.Reflection.MethodInfo[] methods = type.GetMethods();
+
+            foreach (System.Reflection.MethodInfo method in methods)
+            {
+                if (method.Name == "GetKey")
+                {
+                    PrototypeGate instance = GetGateInstance(type);
+                    this.FactoryList.Add(instance.GetKey(), instance);
+                }
+            }
+        }
+
+        private PrototypeGate GetGateInstance(Type type)
+        {
+            foreach(System.Reflection.ConstructorInfo constructor in type.GetConstructors())
+            {
+                if (constructor.GetParameters().Length == 0)
+                {
+                    return (PrototypeGate)constructor.Invoke(null);
+                }
+            }
+
+            return default(PrototypeGate);
         }
 
         public static ComponentFactory GetInstance()
@@ -20,7 +65,6 @@ namespace OntwerpPatronenFullAdder
             if (Instance == null)
             {
                 Instance = new ComponentFactory();
-                PrototypeGate.Init();
             }
 
             return Instance;

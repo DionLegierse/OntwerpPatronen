@@ -8,18 +8,7 @@ namespace OntwerpPatronenFullAdder
 {
     public class InputHighGate : InputGate
     {
-        private static InputHighGate Instance;
-
-        public static void Initialize()
-        {
-            Instance = new InputHighGate("INPUT_HIGH");
-        }
-
-        private InputHighGate(string id) : base(id)
-        {
-        }
-
-        private InputHighGate()
+        public InputHighGate()
         {
 
         }
@@ -32,6 +21,11 @@ namespace OntwerpPatronenFullAdder
         public override IGate Clone()
         {
             return new InputHighGate();
+        }
+
+        public override string GetKey()
+        {
+            return "INPUT_HIGH";
         }
     }
 }

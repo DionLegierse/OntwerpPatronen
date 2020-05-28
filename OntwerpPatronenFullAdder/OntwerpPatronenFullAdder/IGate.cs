@@ -12,7 +12,8 @@ namespace OntwerpPatronenFullAdder
         bool GetState();
         void UpdateState();
         List<IGate> GetInputs();
-
         IGate Clone();
+        string GetKey();
+        bool IsConnectedCorrect();
     }
 }

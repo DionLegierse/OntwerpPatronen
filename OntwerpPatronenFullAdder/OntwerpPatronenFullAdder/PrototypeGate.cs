@@ -5,13 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace OntwerpPatronenFullAdder { 
-public class PrototypeGate : IGate
+public abstract class PrototypeGate : IGate
     {
-        public PrototypeGate(string id)
-        {
-            ComponentFactory.GetInstance().Assign(id, this);  
-        }
-
         public PrototypeGate()
         {
 
@@ -42,14 +37,14 @@ public class PrototypeGate : IGate
             return inputList;
         }
 
-        public static void Init()
+        public virtual string GetKey()
         {
-            OrGate.Initialize();
-            AndGate.Initialize();
-            NotGate.Initialize();
-            Probe.Initialize();
-            InputHighGate.Initialize();
-            InputLowGate.Initialize();
+            return "PROTOTYPE";
         }
+
+        public virtual bool IsConnectedCorrect()
+        {
+            return false;
+        } 
     }
 }
