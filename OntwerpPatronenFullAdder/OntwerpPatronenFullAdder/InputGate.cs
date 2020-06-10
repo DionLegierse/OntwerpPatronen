@@ -8,6 +8,7 @@ namespace OntwerpPatronenFullAdder
 {
     public class InputGate : PrototypeGate
     {
+        //Kijkt naar verandering in de state
         public override void UpdateState()
         {
             ComponentObserver.GetInstance().Notify(this);
@@ -18,6 +19,7 @@ namespace OntwerpPatronenFullAdder
 
         }
 
+        //Als deze er is, dan is het al goed
         public override bool IsConnectedCorrect()
         {
             return true;

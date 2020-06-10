@@ -26,6 +26,8 @@ namespace OntwerpPatronenFullAdder
                     next = next.BaseType;
                 }
 
+                //Als de vorige niet null, niet abstract en niet een van de primitieve types is,
+                //dan wordt deze tyoe toegevoegd aan de factory
                 if (previous != null && !previous.IsAbstract && !previous.IsPrimitive)
                 {
                     AddToFactory(type);
@@ -72,21 +74,26 @@ namespace OntwerpPatronenFullAdder
 
         Dictionary<string, PrototypeGate> FactoryList = new Dictionary<string, PrototypeGate>();
 
+        //Voegt de gate toe aan de factorylist
         public void Assign(string name, PrototypeGate gate)
         {
+            //Alse deze name nog niet bekend is, dan wordt die toegevoegd
             if (!FactoryList.ContainsKey(name))
             {
                 FactoryList.Add(name, gate);
             }
         }
 
+        //Clone een component
         public IGate CreateComponent(string type)
         {
+            //Als dit type bekend is in de factorylist, dan wordt deze gecloned
             if (FactoryList.ContainsKey(type))
             {
                 return FactoryList[type].Clone();
             }
 
+            //Anders gebeurt er niks
             return null;
         }
     }
