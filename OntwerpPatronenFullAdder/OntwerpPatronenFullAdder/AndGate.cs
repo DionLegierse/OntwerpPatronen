@@ -40,7 +40,7 @@ namespace OntwerpPatronenFullAdder
                 }
             }
 
-            ComponentObserver.GetInstance().Notify(this);
+            base.UpdateState();
         }
 
         //Voeg een inputgate toe aan de node
