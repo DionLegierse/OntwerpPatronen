@@ -14,6 +14,7 @@ namespace OntwerpPatronenFullAdder
 
         }
 
+        //Als deze er is, dan is het al goed
         public override bool IsConnectedCorrect()
         {
             return true;
