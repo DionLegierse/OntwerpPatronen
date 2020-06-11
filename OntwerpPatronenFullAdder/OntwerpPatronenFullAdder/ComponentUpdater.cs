@@ -8,6 +8,7 @@ namespace OntwerpPatronenFullAdder
 {
     class ComponentUpdater
     {
+        #region SINGLETON PATTERN
         private static readonly ComponentUpdater instance = new ComponentUpdater();
 
         private readonly Dictionary<IGate, List<IGate>> updateTable = new Dictionary<IGate, List<IGate>>();
@@ -27,6 +28,10 @@ namespace OntwerpPatronenFullAdder
             return instance;
         }
 
+        #endregion
+
+
+        //Voeg de componenten toe en de verbonden componenten
         public void AddComponent(IGate component)
         {
             List<IGate> inputs = component.GetInputs();
@@ -42,6 +47,7 @@ namespace OntwerpPatronenFullAdder
             }
         }
 
+        //Update alle verbonden componenten
         public void UpdateConnectedComponents(IGate component)
         {
 

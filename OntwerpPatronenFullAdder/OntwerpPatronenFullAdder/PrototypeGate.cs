@@ -9,6 +9,8 @@ namespace OntwerpPatronenFullAdder {
     //De prototype voor alle soorten gates
     public abstract class PrototypeGate : IGate
     {
+        ComponentUpdater updater = ComponentUpdater.GetInstance();
+
         public PrototypeGate()
         {
 
@@ -29,7 +31,10 @@ namespace OntwerpPatronenFullAdder {
         //Kijk naar de verandering van de state
         public virtual void UpdateState()
         {
-            ComponentUpdater.GetInstance().UpdateConnectedComponents(this);
+            if (updater != null)
+            {
+                updater.UpdateConnectedComponents(this);
+            }
         }
 
         //Clone een specifieke gate
