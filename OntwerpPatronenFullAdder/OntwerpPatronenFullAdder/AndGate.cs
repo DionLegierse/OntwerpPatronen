@@ -34,7 +34,7 @@ namespace OntwerpPatronenFullAdder
                 }
             }
 
-            ComponentObserver.GetInstance().Notify(this);
+            base.UpdateState();
         }
 
         public override bool AddInput(IGate gate)

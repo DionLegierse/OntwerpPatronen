@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace OntwerpPatronenFullAdder
 {
-    class ComponentObserver
+    class ComponentUpdater
     {
-        private static readonly ComponentObserver instance = new ComponentObserver();
+        private static readonly ComponentUpdater instance = new ComponentUpdater();
 
         private readonly Dictionary<IGate, List<IGate>> updateTable = new Dictionary<IGate, List<IGate>>();
 
-        static ComponentObserver()
+        static ComponentUpdater()
         {
 
         }
 
-        private ComponentObserver()
+        private ComponentUpdater()
         {
 
         }
 
-        public static ComponentObserver GetInstance()
+        public static ComponentUpdater GetInstance()
         {
             return instance;
         }
@@ -42,7 +42,7 @@ namespace OntwerpPatronenFullAdder
             }
         }
 
-        public void Notify(IGate component)
+        public void UpdateConnectedComponents(IGate component)
         {
 
             List<IGate> updateList = updateTable[component];

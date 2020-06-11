@@ -45,7 +45,7 @@
     <Compile Include="AndGate.cs" />
     <Compile Include="Circuit.cs" />
     <Compile Include="ComponentFactory.cs" />
-    <Compile Include="ComponentObserver.cs" />
+    <Compile Include="ComponentUpdater.cs" />
     <Compile Include="FileReader.cs" />
     <Compile Include="IGate.cs" />
     <Compile Include="InputGate.cs" />

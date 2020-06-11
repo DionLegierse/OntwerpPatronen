@@ -55,7 +55,7 @@ namespace OntwerpPatronenFullAdder
                     return;
                 }
 
-                ComponentObserver.GetInstance().AddComponent(node.Value);
+                ComponentUpdater.GetInstance().AddComponent(node.Value);
             }
 
             isSimulateable = true;

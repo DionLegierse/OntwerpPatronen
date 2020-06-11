@@ -23,7 +23,7 @@ public abstract class PrototypeGate : IGate
 
         public virtual void UpdateState()
         {
-            ComponentObserver.GetInstance().Notify(this);
+            ComponentUpdater.GetInstance().UpdateConnectedComponents(this);
         }
 
         public virtual IGate Clone()

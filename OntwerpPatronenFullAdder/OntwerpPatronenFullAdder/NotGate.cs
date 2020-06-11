@@ -24,8 +24,8 @@ namespace OntwerpPatronenFullAdder
         public override void UpdateState()
         {
             state = !inputGate.GetState();
-            
-            ComponentObserver.GetInstance().Notify(this);
+
+            base.UpdateState();
         }
 
         public override bool AddInput(IGate gate)
